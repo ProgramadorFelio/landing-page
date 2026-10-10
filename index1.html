@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mabelane Ferragens - Tudo para a sua obra num só lugar!</title>
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Google Fonts Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy-950: #081733;
+  --navy-900: #0F2C59;
+  --navy-800: #0B2246;
+  --brand-red: #D80032;
+  --brand-red-hover: #B8002B;
+  --brand-yellow: #F7B801;
+  --text-main: #2b2b2b;
+  --bg-body: #f4f6f9;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: var(--navy-900); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--brand-red); }
+
+/* Utility classes */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+/* Top Bar */
+.top-bar {
+  background-color: var(--navy-950);
+  color: #ffffff;
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--navy-800);
+}
+.top-bar-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.top-bar-left, .top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.top-bar a { color: #ffffff; text-decoration: none; transition: color 0.2s; }
+.top-bar a:hover { color: var(--brand-yellow); }
+
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background-color: var(--navy-900);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+.logo-box {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+.logo-icon {
+  width: 48px;
+  height: 48px;
+  background: #fff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.logo-texts h1 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #fff;
+}
+.logo-texts h1 span { color: var(--brand-red); }
+.logo-texts span.sub {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--brand-yellow);
+  letter-spacing: 0.05em;
+  display: block;
+  margin-top: 2px;
+}
+
+.search-container {
+  flex: 1;
+  max-width: 450px;
+  margin: 0 2rem;
+  position: relative;
+}
+.search-input {
+  width: 100%;
+  background-color: var(--navy-800);
+  color: #fff;
+  padding: 0.7rem 1rem 0.7rem 2.5rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  border: 1px solid var(--navy-800);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.search-input::placeholder { color: #a0aec0; }
+.search-input:focus { border-color: var(--brand-red); }
+.search-container i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #a0aec0;
+  font-size: 0.9rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.nav-links a { color: #fff; text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--brand-yellow); }
+
+.header-actions { display: flex; align-items: center; gap: 1rem; }
+
+.cart-btn {
+  position: relative;
+  background-color: var(--brand-red);
+  border: none;
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, transform 0.2s;
+  box-shadow: 0 4px 12px rgba(216,0,50,0.3);
+}
+.cart-btn:hover {
+  background-color: var(--brand-red-hover);
+  transform: scale(1.05);
+}
+.cart-btn i { font-size: 1.1rem; color: #fff; }
+.cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: var(--brand-yellow);
+  color: var(--navy-950);
+  font-weight: 800;
+  font-size: 0.7rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--navy-900);
+}
+.cart-badge.hidden { display: none; }
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.mobile-search-bar { display: none; padding: 0 1.5rem 1rem 1.5rem; }
+.mobile-drawer {
+  display: none;
+  background-color: var(--navy-950);
+  border-top: 1px solid var(--navy-800);
+  padding: 1rem 1.5rem;
+}
+.mobile-drawer a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Hero Banner */
+.hero {
+  background-color: var(--navy-900);
+  color: #fff;
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px solid var(--brand-red);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+}
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(216, 0, 50, 0.2);
+  color: #ff4d6d;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border: 1px solid rgba(216, 0, 50, 0.3);
+  margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+.hero h1 span { color: var(--brand-yellow); }
+.hero p {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+.hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.btn-primary {
+  background-color: var(--brand-red);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.9rem 1.75rem;
+  border-radius: 12px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(216,0,50,0.3);
+  transition: background-color 0.2s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover { background-color: var(--brand-red-hover); transform: translateY(-2px); }
+
+.btn-whatsapp {
+  background-color: #059669;
+  color: #fff;
+  font-weight: 700;
+  padding: 0.9rem 1.75rem;
+  border-radius: 12px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(5,150,105,0.3);
+  transition: background-color 0.2s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.btn-whatsapp:hover { background-color: #047857; transform: translateY(-2px); }
+
+.hero-card {
+  background-color: var(--navy-800);
+  border: 1px solid var(--navy-800);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  position: relative;
+}
+.hero-card-tag {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background-color: var(--brand-yellow);
+  color: var(--navy-950);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 50px;
+  text-transform: uppercase;
+}
+.hero-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.hero-card-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-yellow);
+  font-size: 1.75rem;
+}
+.hero-card-header h3 { font-size: 1.25rem; font-weight: 700; }
+.hero-card-header p { font-size: 0.75rem; color: #cbd5e1; margin: 0; }
+.hero-card-list {
+  list-style: none;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+.hero-card-list li {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.hero-card-list li i { color: #34d399; }
+.btn-card-action {
+  width: 100%;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.btn-card-action:hover { background: rgba(255,255,255,0.2); }
+
+/* Features Bar */
+.features-bar {
+  background-color: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 2rem 0;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+.feature-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.feature-item i { font-size: 1.8rem; color: var(--brand-red); }
+.feature-item div h4 { font-size: 0.95rem; font-weight: 700; color: #111; }
+.feature-item div p { font-size: 0.75rem; color: #6b7280; }
+
+/* Main Catalog Section */
+.catalog-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  flex-grow: 1;
+  width: 100%;
+}
+.catalog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.catalog-title-wrapper span {
+  color: var(--brand-red);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.catalog-title-wrapper h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--navy-950);
+  margin-top: 0.25rem;
+}
+.catalog-title-wrapper p {
+  color: #4b5563;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.category-filters { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.cat-btn {
+  background-color: #e5e7eb;
+  color: #374151;
+  border: none;
+  padding: 0.6rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.cat-btn:hover { background-color: #d1d5db; }
+.cat-btn.active {
+  background-color: var(--navy-900);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(15,44,89,0.3);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.product-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+}
+.product-banner {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #fff;
+}
+.product-banner i {
+  font-size: 3.5rem;
+  opacity: 0.3;
+  transition: transform 0.5s;
+}
+.product-card:hover .product-banner i { transform: scale(1.15); }
+.product-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255,255,255,0.95);
+  color: var(--navy-950);
+  font-weight: 800;
+  font-size: 9px;
+  padding: 4px 10px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.product-content { padding: 1.25rem; }
+.product-cat {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--brand-red);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.product-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #111;
+  margin: 0.25rem 0 0.5rem 0;
+}
+.product-desc {
+  font-size: 0.75rem;
+  color: #6b7280;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+.product-specs {
+  background: #f9fafb;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-size: 11px;
+  color: #4b5563;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.product-actions {
+  padding: 0 1.25rem 1.25rem 1.25rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.btn-details {
+  flex: 1;
+  background: #f3f4f6;
+  color: #374151;
+  border: none;
+  padding: 0.65rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+.btn-details:hover { background: #e5e7eb; }
+.btn-add {
+  flex: 1;
+  background: var(--navy-900);
+  color: #fff;
+  border: none;
+  padding: 0.65rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  box-shadow: 0 2px 6px rgba(15,44,89,0.2);
+}
+.btn-add:hover { background: var(--brand-red); }
+
+.no-products {
+  display: none;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #fff;
+  border-radius: 16px;
+  border: 2px dashed #d1d5db;
+  margin: 2rem 0;
+}
+.no-products i { font-size: 3rem; color: #9ca3af; margin-bottom: 1rem; }
+.no-products h3 { font-size: 1.1rem; color: #374151; font-weight: 700; }
+.no-products p { font-size: 0.8rem; color: #6b7280; margin-top: 0.25rem; }
+
+/* Services Section */
+.services-section {
+  background-color: var(--navy-950);
+  color: #fff;
+  padding: 5rem 0;
+  border-top: 1px solid var(--navy-800);
+}
+.services-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+}
+.services-header span {
+  color: var(--brand-yellow);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.services-header h2 { font-size: 2rem; font-weight: 800; margin-top: 0.25rem; }
+.services-header p { color: #9ca3af; font-size: 0.9rem; margin-top: 0.5rem; }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+.service-card {
+  background-color: var(--navy-900);
+  border: 1px solid var(--navy-800);
+  padding: 2rem;
+  border-radius: 16px;
+  transition: border-color 0.2s;
+}
+.service-card:hover { border-color: var(--brand-red); }
+.service-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: #fff; }
+.service-card p { font-size: 0.8rem; color: #9ca3af; line-height: 1.6; }
+
+/* About / Location Banner */
+.about-section { background-color: #fff; padding: 5rem 0; }
+.about-box {
+  background: linear-gradient(135deg, var(--navy-900), var(--navy-950));
+  border-radius: 24px;
+  color: #fff;
+  padding: 3rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.about-content { max-width: 650px; }
+.about-tag {
+  background: rgba(216,0,50,0.3);
+  color: #ff4d6d;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 50px;
+  border: 1px solid rgba(216,0,50,0.3);
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.about-content h2 { font-size: 2.25rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+.about-content p { color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem; }
+.about-checks { display: flex; gap: 1rem; flex-wrap: wrap; }
+.check-pill {
+  background: rgba(11,34,70,0.8);
+  border: 1px solid var(--navy-800);
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.check-pill i { color: #34d399; }
+
+.location-card {
+  background: var(--navy-800);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid var(--navy-800);
+  text-align: center;
+  min-width: 280px;
+}
+.location-icon-box {
+  width: 48px;
+  height: 48px;
+  background: var(--brand-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem auto;
+  font-size: 1.2rem;
+}
+.location-card h3 { font-size: 1.1rem; font-weight: 700; }
+.location-card .spot { color: var(--brand-yellow); font-size: 0.9rem; font-weight: 600; margin-top: 0.25rem; }
+.location-card .country { color: #9ca3af; font-size: 0.75rem; margin-top: 0.25rem; margin-bottom: 1rem; }
+.map-btn {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  display: inline-block;
+  transition: background 0.2s;
+}
+.map-btn:hover { background: rgba(255,255,255,0.2); }
+
+/* Footer */
+footer {
+  background-color: var(--navy-950);
+  color: #9ca3af;
+  border-top: 1px solid var(--navy-800);
+  padding: 4rem 0 2rem 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+.footer-col h4 {
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.25rem;
+}
+.footer-col p { font-size: 0.75rem; line-height: 1.6; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.5rem; font-size: 0.75rem; }
+.footer-col ul li a { color: #9ca3af; text-decoration: none; transition: color 0.2s; }
+.footer-col ul li a:hover { color: var(--brand-yellow); }
+.footer-bottom {
+  border-top: 1px solid var(--navy-800);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.75rem;
+}
+
+/* Floating WhatsApp Button */
+.float-wa {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 30;
+  background-color: #059669;
+  color: #fff;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  text-decoration: none;
+  font-size: 1.8rem;
+  transition: transform 0.2s;
+}
+.float-wa:hover { transform: scale(1.1); }
+
+/* Modals Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(8, 23, 51, 0.75);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+
+.modal-box {
+  background: #fff;
+  border-radius: 24px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.3s;
+}
+.modal-overlay.active .modal-box { transform: translateY(0); }
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  background: #f3f4f6;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4b5563;
+  transition: background 0.2s;
+}
+.modal-close:hover { background: #e5e7eb; }
+
+/* Cart Drawer specific style */
+.cart-drawer-overlay { justify-content: flex-end; padding: 0; }
+.cart-drawer {
+  background: #fff;
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-out;
+}
+.cart-drawer-overlay.active .cart-drawer { transform: translateX(0); }
+.cart-header {
+  padding: 1.25rem;
+  background: var(--navy-900);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cart-items-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.cart-footer {
+  padding: 1.25rem;
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 55%;
+  overflow-y: auto;
+}
+
+/* Toast notification */
+.toast {
+  position: fixed;
+  top: 100px;
+  right: 1.5rem;
+  z-index: 60;
+  background: var(--navy-900);
+  color: #fff;
+  padding: 0.85rem 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  border-left: 4px solid var(--brand-red);
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transform: translateX(150%);
+  transition: transform 0.3s;
+}
+.toast.show { transform: translateX(0); }
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: block; }
+}
+@media (max-width: 768px) {
+  .header-inner .search-container { display: none; }
+  .mobile-search-bar { display: block; }
+  .hero h1 { font-size: 2.25rem; }
+  .features-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .about-box { padding: 2rem 1.5rem; }
+  .desktop-only { display: none; }
+  .top-bar-right { font-size: 0.7rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Top Contact Bar -->
+<div class="top-bar">
+  <div class="top-bar-content">
+    <div class="top-bar-left">
+      <span><i class="fas fa-map-marker-alt" style="color:var(--brand-red);"></i> Terminal de Missimbine</span>
+      <span class="desktop-only"><i class="fas fa-clock" style="color:var(--brand-yellow);"></i> Seg - Sáb: 7h:30 - 17h:00</span>
+    </div>
+    <div class="top-bar-right">
+      <a href="tel:+258840683794"><i class="fas fa-phone"></i> +258 87 345 2090</a>
+      <span>|</span>
+      <a href="tel:+258873452090">873 452 090 / 834 252 255</a>
+    </div>
+  </div>
+</div>
+
+<!-- Main Navigation Header -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo-box">
+      <div class="logo-icon">
+        <svg viewBox="0 0 100 100" style="width:100%; height:100%;">
+          <polygon points="10,85 50,15 90,85" fill="none" stroke="#0F2C59" stroke-width="12"/>
+          <polygon points="30,85 50,45 70,85" fill="none" stroke="#D80032" stroke-width="10"/>
+          <rect x="42" y="55" width="16" height="30" fill="#F7B801"/>
+        </svg>
+      </div>
+      <div class="logo-texts">
+        <h1>MABELANE<span>.</span></h1>
+        <span class="sub">FERRAGENS</span>
+      </div>
+    </a>
+
+    <!-- Desktop Search Bar -->
+    <div class="search-container">
+      <input type="text" id="searchInput" oninput="filterProducts()" placeholder="O que procura para a sua obra? (ex: Cimento, Tubos, Barrotes)..." class="search-input">
+      <i class="fas fa-search"></i>
+    </div>
+
+    <div class="header-actions">
+      <ul class="nav-links">
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#sobre">Sobre Nós</a></li>
+        <li><a href="#contactos">Contactos</a></li>
+      </ul>
+
+      <!-- Cart Trigger Button -->
+      <button onclick="toggleCartModal(true)" class="cart-btn" aria-label="Abrir Carrinho">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cartBadge" class="cart-badge hidden">0</span>
+      </button>
+
+      <!-- Mobile Menu Toggle -->
+      <button onclick="toggleMobileMenu()" class="mobile-menu-btn" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Search Bar -->
+  <div class="mobile-search-bar">
+    <div style="position:relative;">
+      <input type="text" id="mobileSearchInput" oninput="syncAndFilter(this.value)" placeholder="Pesquisar cimento, tubos, madeira..." class="search-input">
+      <i class="fas fa-search" style="position:absolute; left:1rem; top:50%; transform:translateY(-50%); color:#a0aec0;"></i>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div id="mobileMenu" class="mobile-drawer">
+    <a href="#produtos" onclick="toggleMobileMenu()">Catálogo de Produtos</a>
+    <a href="#servicos" onclick="toggleMobileMenu()">Nossos Serviços</a>
+    <a href="#sobre" onclick="toggleMobileMenu()">Sobre A Mabelane</a>
+    <a href="#contactos" onclick="toggleMobileMenu()">Contactos &amp; Localização</a>
+  </div>
+</header>
+
+<!-- Hero Banner -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-tag">
+          <i class="fas fa-hammer"></i> NUM SÓ LUGAR!
+        </div>
+        <h1>Tudo para a sua obra com <span>Qualidade &amp; Confiança</span></h1>
+        <p>
+          Qualidade de excelência, variedade e preços justos para garantir o sucesso e a durabilidade da sua construção. Monte o seu pedido e peça uma cotação rápida pelo WhatsApp.
+        </p>
+        <div class="hero-buttons">
+          <a href="#produtos" class="btn-primary">
+            <i class="fas fa-boxes-stacked"></i> Ver Catálogo Completo
+          </a>
+          <a href="https://wa.me/+258840683794?text=Ol%C3%A1%21%20Gostaria%20de%20obter%20informa%C3%A7%C3%B5es%20gerais%20sobre%20os%20produtos%20da%20Mabelane%20Ferragens." target="_blank" class="btn-whatsapp">
+            <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> Pedir Cotação Rápida
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="hero-card">
+          <div class="hero-card-tag">Destaque</div>
+          <div class="hero-card-header">
+            <div class="hero-card-icon">
+              <i class="fas fa-cubes"></i>
+            </div>
+            <div>
+              <h3>Cimento Dugongo</h3>
+              <p>Resistência máxima para obras estruturais</p>
+            </div>
+          </div>
+          <ul class="hero-card-list">
+            <li><i class="fas fa-check"></i> Elevada durabilidade e cura rápida</li>
+            <li><i class="fas fa-check"></i> Stock permanente e entrega rápida</li>
+            <li><i class="fas fa-check"></i> Preço competitivo para grandes volumes</li>
+          </ul>
+          <button onclick="openProductModal(1)" class="btn-card-action">
+            Ver Detalhes do Cimento <i class="fas fa-arrow-right" style="font-size: 0.75rem;"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature Highlights Bar -->
+<div class="features-bar">
+  <div class="container">
+    <div class="features-grid">
+      <div class="feature-item">
+        <i class="fas fa-award"></i>
+        <div style="text-align: left;">
+          <h4>Qualidade de Excelência</h4>
+          <p>Materiais certificados para sua obra</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-hand-holding-dollar"></i>
+        <div style="text-align: left;">
+          <h4>Preços Justos</h4>
+          <p>Melhor relação custo-benefício</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <i class="fas fa-truck-fast"></i>
+        <div style="text-align: left;">
+          <h4>Atendimento Eficiente</h4>
+          <p>Prontidão na entrega e cotação</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Catalog Section -->
+<main id="produtos" class="catalog-section">
+  <div class="catalog-header">
+    <div class="catalog-title-wrapper">
+      <span>Nosso Portfólio</span>
+      <h2>Catálogo de Produtos</h2>
+      <p>Selecione os artigos necessários para adicionar ao seu carrinho de cotação.</p>
+    </div>
+
+    <!-- Category Filter Pills -->
+    <div id="categoryFilter" class="category-filters">
+      <button onclick="setCategory('Todos')" class="cat-btn active">Todos</button>
+      <button onclick="setCategory('Construção')" class="cat-btn">Construção</button>
+      <button onclick="setCategory('Madeiras')" class="cat-btn">Madeiras</button>
+      <button onclick="setCategory('Serralharia')" class="cat-btn">Serralharia</button>
+      <button onclick="setCategory('Canalização')" class="cat-btn">Canalização</button>
+      <button onclick="setCategory('Acessórios')" class="cat-btn">Acessórios</button>
+    </div>
+  </div>
+
+  <!-- Products Grid -->
+  <div id="productGrid" class="products-grid">
+    <!-- Dynamic product cards populated via JS -->
+  </div>
+
+  <!-- Empty State -->
+  <div id="noProductsMsg" class="no-products">
+    <i class="fas fa-search-minus"></i>
+    <h3>Nenhum produto encontrado</h3>
+    <p>Tente pesquisar por outro termo ou selecione a categoria "Todos".</p>
+  </div>
+</main>
+
+<!-- Services Section -->
+<section id="servicos" class="services-section">
+  <div class="container">
+    <div class="services-header">
+      <span>Especialidades</span>
+      <h2>Nossos Serviços</h2>
+      <p>Além dos materiais de elevada qualidade, oferecemos soluções completas para todas as fases da sua obra.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon" style="background: rgba(216,0,50,0.2); color: #ff4d6d;">
+          <i class="fas fa-building"></i>
+        </div>
+        <h3>Venda de Material de Construção</h3>
+        <p>Cimento, blocos, cimento de alta resistência, agregados e tudo o que precisa para a fundação e estrutura do seu imóvel.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background: rgba(247,184,1,0.2); color: var(--brand-yellow);">
+          <i class="fas fa-layer-group"></i>
+        </div>
+        <h3>Aluguer de Material de Cofragem</h3>
+        <p>Painéis, pranchas, barrotes e suportes para cofragem de pilares, vigas e lajes com total segurança e economia.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background: rgba(5,150,105,0.2); color: #34d399;">
+          <i class="fas fa-cubes-stacked"></i>
+        </div>
+        <h3>Venda de Blocos</h3>
+        <p>Blocos de cimento resistentes de várias dimensões, produzidos com traço calibrado para máxima firmeza.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background: rgba(59,130,246,0.2); color: #60a5fa;">
+          <i class="fas fa-hard-hat"></i>
+        </div>
+        <h3>Equipamentos de Proteção (EPI)</h3>
+        <p>Capacetes, luvas, botas de biqueira de aço e óculos de proteção para garantir a segurança no seu estaleiro de obras.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background: rgba(234,179,8,0.2); color: #facc15;">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h3>Venda de Material Elétrico</h3>
+        <p>Cabos, disjuntores, caixas de passagem, tubos e acessórios para instalações elétricas residenciais e industriais.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon" style="background: rgba(6,182,212,0.2); color: #22d3ee;">
+          <i class="fas fa-faucet-drip"></i>
+        </div>
+        <h3>Venda de Material de Canalização</h3>
+        <p>Sistemas completos PPR, PVC e Copoleno, válvulas, colas e ferramentas para redes de água limpa e residuais.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About / Location Banner -->
+<section id="sobre" class="about-section">
+  <div class="container">
+    <div class="about-box">
+      <div class="about-content">
+        <span class="about-tag">SOBRE A MABELANE</span>
+        <h2>A Escolha Inteligente para a Sua Obra!</h2>
+        <p>
+          Localizados no <strong>Terminal de Missimbine</strong>, a Mabelane Ferragens compromete-se a fornecer produtos de alta qualidade, garantindo preços competitivos e um atendimento próximo e transparente para construtores, mestres de obras e clientes individuais.
+        </p>
+        <div class="about-checks">
+          <div class="check-pill">
+            <i class="fas fa-circle-check"></i> Produtos Certificados
+          </div>
+          <div class="check-pill">
+            <i class="fas fa-circle-check"></i> Atendimento Especializado
+          </div>
+        </div>
+      </div>
+
+      <div class="location-card">
+        <div class="location-icon-box">
+          <i class="fas fa-location-dot" style="color:#fff;"></i>
+        </div>
+        <h3>Visite-nos em</h3>
+        <div class="spot">Terminal de Missimbine</div>
+        <div class="country">Moçambique</div>
+        <a href="https://maps.google.com/?q=Terminal+de+Missimbine" target="_blank" class="map-btn">
+          <i class="fas fa-map" style="margin-right: 4px;"></i> Abrir no Mapa
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="contactos">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div style="font-size: 1.25rem; font-weight:800; color:#fff; margin-bottom:0.75rem;">
+          MABELANE<span style="color:var(--brand-red);">.</span>
+        </div>
+        <p>Tudo para a sua obra num só lugar! Qualidade, variedade e preços justos para a sua construção.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#produtos">Catálogo de Produtos</a></li>
+          <li><a href="#servicos">Serviços Prestados</a></li>
+          <li><a href="#sobre">Sobre a Empresa</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Linhas Directas</h4>
+        <ul>
+          <li style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+            <i class="fab fa-whatsapp" style="color:#34d399; font-size:1rem;"></i>
+            <a href="https://wa.me/258873452090" target="_blank">+258 87 345 2090 (WhatsApp)</a>
+          </li>
+          <li style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+            <i class="fas fa-phone" style="color:var(--brand-red);"></i>
+            <span>873 452 090</span>
+          </li>
+          <li style="display:flex; align-items:center; gap:0.5rem;">
+            <i class="fas fa-phone" style="color:var(--brand-red);"></i>
+            <span>834 252 255</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Localização &amp; Horário</h4>
+        <p style="margin-bottom: 0.5rem;"><i class="fas fa-map-pin" style="color:var(--brand-red); margin-right:4px;"></i> Terminal de Missimbine</p>
+        <p><i class="fas fa-clock" style="color:var(--brand-yellow); margin-right:4px;"></i> Segunda a Sábado<br>07:30 - 17:00</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Mabelane Ferragens.</p>
+      <p>A Escolha Inteligente Para A Sua Obra!</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/+258840683794?text=Ol%C3%A1%21%20Gostaria%20de%20pedir%20informa%C3%A7%C3%B5es%20sobre%20os%20produtos%20da%20Mabelane%20Ferragens." target="_blank" title="Falar no WhatsApp" class="float-wa">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Product Details Modal -->
+<div id="productModal" class="modal-overlay" onclick="if(event.target === this) closeProductModal()">
+  <div class="modal-box">
+    <button onclick="closeProductModal()" class="modal-close">
+      <i class="fas fa-times"></i>
+    </button>
+    <div id="modalContent" style="padding: 1.5rem;">
+      <!-- Dynamically filled -->
+    </div>
+  </div>
+</div>
+
+<!-- Shopping Cart Modal Drawer -->
+<div id="cartModal" class="modal-overlay cart-drawer-overlay" onclick="if(event.target === this) toggleCartModal(false)">
+  <div class="cart-drawer">
+    <div class="cart-header">
+      <div style="display:flex; align-items:center; gap:0.5rem;">
+        <i class="fas fa-shopping-basket" style="color:var(--brand-yellow);"></i>
+        <h3 style="font-size:1.1rem; font-weight:700;">Carrinho de Cotação</h3>
+      </div>
+      <button onclick="toggleCartModal(false)" style="background:none; border:none; color:#fff; font-size:1.2rem; cursor:pointer;">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div id="cartItemsList" class="cart-items-container">
+      <!-- Dynamic Items -->
+    </div>
+
+    <div class="cart-footer">
+      <h4 style="font-size:0.75rem; font-weight:800; text-transform:uppercase; color:var(--navy-900); letter-spacing:0.05em;">Seus Dados para Cotação</h4>
+      <div>
+        <label style="display:block; font-size:0.7rem; font-weight:700; color:#374151; margin-bottom:0.25rem;">Seu Nome / Empresa *</label>
+        <input type="text" id="custName" placeholder="Ex: João Mabuza" style="width:100%; font-size:0.75rem; padding:0.6rem; border-radius:8px; border:1px solid #d1d5db; outline:none; background:#fff;">
+      </div>
+      <div>
+        <label style="display:block; font-size:0.7rem; font-weight:700; color:#374151; margin-bottom:0.25rem;">Local da Obra / Entrega *</label>
+        <input type="text" id="custLocation" placeholder="Ex: Missimbine, Matola, Maputo..." style="width:100%; font-size:0.75rem; padding:0.6rem; border-radius:8px; border:1px solid #d1d5db; outline:none; background:#fff;">
+      </div>
+      <div>
+        <label style="display:block; font-size:0.7rem; font-weight:700; color:#374151; margin-bottom:0.25rem;">Observações / Especificações (Opcional)</label>
+        <textarea id="custNotes" rows="2" placeholder="Ex: Preciso de entrega urgente na próxima terça-feira." style="width:100%; font-size:0.75rem; padding:0.6rem; border-radius:8px; border:1px solid #d1d5db; outline:none; background:#fff; resize:vertical;"></textarea>
+      </div>
+
+      <button onclick="sendWhatsAppQuote()" class="btn-whatsapp" style="justify-content:center; width:100%; margin-top:0.5rem; font-size:0.8rem; padding:0.75rem;">
+        <i class="fab fa-whatsapp" style="font-size:1.1rem;"></i> Enviar Pedido via WhatsApp
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Notification Toast -->
+<div id="toast" class="toast">
+  <i class="fas fa-check-circle" style="color:#34d399; font-size:1.1rem;"></i>
+  <span id="toastMsg">Item adicionado com sucesso!</span>
+</div>
+
+<script>
+// ===== Database =====
+const PRODUCTS = [
+  {
+    id: 1,
+    name: "Cimento Dugongo",
+    category: "Construção",
+    tag: "Alta Resistência",
+    image:"img/foto1.jpg",
+    colorBackground: "#2563eb",
+    description: "Cimento de alta durabilidade e secagem optimizada. Ideal para estruturas exigentes, vigas, lajes e fundações.",
+    specs: "Saco de 50kg | Norma de Qualidade Certificada",
+    unit: "Saco"
+  },
+  {
+    id: 2,
+    name: "Barrotes de Madeira",
+    category: "Madeiras",
+     image:"img/foto2.jpeg",
+    colorBackground: "#b45309",
+    description: "Barrotes em madeira tratada de alta qualidade, resistentes ao peso e à flexão. Excelentes para suporte de telhados e cofragem.",
+    specs: "Dimensões variadas sob consulta (3x2, 4x2)",
+    unit: "Unidade"
+  },
+  {
+    id: 3,
+    name: "Pranchas de Madeira",
+    category: "Madeiras",
+    tag: "Cofragem",
+     image:"img/foto8.jpg",
+    colorBackground: "#92400e",
+    description: "Pranchas robustas para andaimes, estruturas de cofragem e acabamentos diversos de carpintaria.",
+    specs: "Sarrafadas e alinhadas",
+    unit: "Unidade"
+  },
+  {
+    id: 4,
+    name: "Tubos Metálicos Quadrados",
+    category: "Serralharia",
+    tag: "Perfis",
+     image:"img/foto3.jpeg",
+    colorBackground: "#334155",
+    description: "Perfis metálicos estruturais rígidos, perfeitos para portões, vedações, pilares e estruturas metálicas ligeiras.",
+    specs: "Disponível em várias espessuras e medidas",
+    unit: "Vara (6m)"
+  },
+  {
+    id: 5,
+    name: "Tubos Metálicos Redondos",
+    category: "Serralharia",
+    tag: "Perfis",
+     image:"img/foto7.jpeg",
+    colorBackground: "#1e293b",
+    description: "Tubos redondos de ferro para canalização industrial, estaleiros, corrimãos e estruturas galvanizadas.",
+    specs: "Vários diâmetros disponíveis",
+    unit: "Vara (6m)"
+  },
+  {
+    id: 6,
+    name: "Cantoneiras Metálicas",
+    category: "Serralharia",
+    tag: "Estruturas",
+    image:"img/foto11.jpeg",
+    colorBackground: "#3f3f46",
+    description: "Cantoneiras em L de aço laminado para reforço de cantos, caixilharia pesada e suportes de carga.",
+    specs: "Perfis em L com variadas asas e espessuras",
+    unit: "Vara"
+  },
+  {
+    id: 7,
+    name: "Material de Teto Falso",
+    category: "Construção",
+    tag: "Acabamentos",
+     image:"img/foto9.png",
+    colorBackground: "#4f46e5",
+    description: "Painéis, calhas e perfis de suporte para montagem rápida e limpa de tetos falsos modernos.",
+    specs: "PVC e Placa de Gesso",
+    unit: "m² / Peça"
+  },
+  {
+    id: 8,
+    name: "Tubos PPR",
+    category: "Canalização",
+    tag: "Água Quente & Fria",
+     image:"img/foto10.jpg",
+    colorBackground: "#059669",
+    description: "Tubagem em Polipropileno Copolímero Random para redes de água potável quente e fria sob alta pressão.",
+    specs: "Resistente à corrosão e altas temperaturas",
+    unit: "Vara"
+  },
+  {
+    id: 9,
+    name: "Tubos PVC",
+    category: "Canalização",
+    tag: "Esgoto & Drenagem",
+    image:"img/foto4.jpeg",
+    colorBackground: "#6b7280",
+    description: "Tubos PVC rígidos para sistemas de esgoto, águas pluviais e drenagem geral.",
+    specs: "Várias bitolas (DN 40 a DN 110)",
+    unit: "Vara"
+  },
+  {
+    id: 10,
+    name: "Tubos Copoleno",
+    category: "Canalização",
+    tag: "Flexível & Água",
+   image:"img/foto12.jpeg",
+    colorBackground: "#1d4ed8",
+    description: "Tubagem de alta densidade resistente a impactos e pressões hidráulicas contínuas.",
+    specs: "Rolo / Vara",
+    unit: "Metro"
+  },
+  {
+    id: 11,
+    name: "Acessórios PPR",
+    category: "Acessórios",
+    tag: "Canalização",
+    image:"img/foto13.jpeg",
+    colorBackground: "#047857",
+    description: "Joelhos, tês, uniões e transições PPR para termo-fusão segura sem fugas.",
+    specs: "Diversos diâmetros (20mm a 63mm)",
+    unit: "Peça"
+  },
+  {
+    id: 12,
+    name: "Acessórios PVC",
+    category: "Acessórios",
+    tag: "Esgoto",
+    image:"img/foto14.jpeg",
+    colorBackground: "#4b5563",
+    description: "Conexões PVC: curvas, sifões, Tês de junção e reduções para efluentes.",
+    specs: "Encaixe ou colagem",
+    unit: "Peça"
+  },
+  {
+    id: 13,
+    name: "Acessórios Copoleno",
+    category: "Acessórios",
+    tag: "Ligação",
+    image:"img/foto15.webp",
+    colorBackground: "#1e3a8a",
+    description: "Adaptadores e uniões mecânicas para tubos Copoleno com vedação estanque.",
+    specs: "Alta durabilidade",
+    unit: "Peça"
+  },
+  {
+    id: 14,
+    name: "Colas para PVC",
+    category: "Acessórios",
+    tag: "Tintas & Colas",
+     image:"img/foto5.jpeg",
+    colorBackground: "#dc2626",
+    description: "Adesivo líquido especial de secagem rápida para soldadura a frio de tubos e conexões PVC.",
+    specs: "Lata de 250g / 500g",
+    unit: "Unidade"
+  },
+  {
+    id: 15,
+    name: "Ferramentas para Canalização",
+    category: "Acessórios",
+    tag: "Ferramentas",
+     image:"img/foto6.jpeg",
+    colorBackground: "#d97706",
+    description: "Chaves para tubos, alicates de pressão, cortadores de tubos e máquinas de termo-fusão PPR.",
+    specs: "Uso Profissional",
+    unit: "Unidade"
+  },
+  {
+    id: 16,
+    name: "Registos e Válvulas",
+    category: "Canalização",
+    tag: "Controlo de Fluxo",
+    image:"img/foto16.png",
+    colorBackground: "#b91c1c",
+    description: "Válvulas de esfera, registos de corte e torneiras de segurança em latão e bronze.",
+    specs: "Passagem total, rosca interior/exterior",
+    unit: "Peça"
+  }
+];
+
+// ===== State Management =====
+let cart = [];
+let selectedCategory = 'Todos';
+let searchQuery = '';
+
+// ===== Initialize =====
+window.onload = function () {
+  renderProducts();
+  updateCartUI();
+};
+
+// ===== Render Products =====
+function renderProducts() {
+  const grid = document.getElementById('productGrid');
+  const noMsg = document.getElementById('noProductsMsg');
+
+  const filtered = PRODUCTS.filter(prod => {
+    const matchesCat = selectedCategory === 'Todos' || prod.category === selectedCategory;
+    const matchesSearch =
+      prod.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      prod.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      prod.tag.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCat && matchesSearch;
+  });
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '';
+    noMsg.style.display = 'block';
+    return;
+  }
+
+  noMsg.style.display = 'none';
+
+  grid.innerHTML = filtered.map(prod => `
+    <div class="product-card">
+      <div>
+        <div class="product-banner" style="background-color: ${prod.colorBackground};">
+          <img src="${prod.image}" style="width:100%; height:150px; object-fit:cover;">
+          <span class="product-tag">${prod.tag}</span>
+        </div>
+
+        <div class="product-content">
+          <span class="product-cat">${prod.category}</span>
+          <h3 class="product-name">${prod.name}</h3>
+          <p class="product-desc">${prod.description}</p>
+          <div class="product-specs">
+            <i class="fas fa-info-circle" style="color:var(--navy-900);"></i>
+            <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${prod.specs}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-actions">
+        <button onclick="openProductModal(${prod.id})" class="btn-details">
+          <i class="fas fa-eye" style="font-size: 0.7rem;"></i> Detalhes
+        </button>
+        <button onclick="addToCart(${prod.id}, 1)" class="btn-add">
+          <i class="fas fa-cart-plus"></i> Adicionar
+        </button>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ===== Category / Search =====
+function setCategory(cat) {
+  selectedCategory = cat;
+  document.querySelectorAll('.cat-btn').forEach(btn => {
+    if (btn.innerText.trim() === cat) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+  renderProducts();
+}
+
+function filterProducts() {
+  searchQuery = document.getElementById('searchInput').value;
+  renderProducts();
+}
+
+function syncAndFilter(val) {
+  document.getElementById('searchInput').value = val;
+  searchQuery = val;
+  renderProducts();
+}
+
+// ===== Product Modal =====
+function openProductModal(id) {
+  const prod = PRODUCTS.find(p => p.id === id);
+  if (!prod) return;
+
+  const modalContent = document.getElementById('modalContent');
+  modalContent.innerHTML = `
+    <div style="background-color: ${prod.colorBackground}; margin: -1.5rem -1.5rem 1.5rem -1.5rem; padding: 2rem; color: #fff; text-align: center; border-radius: 24px 24px 0 0;">
+      <img src=" ${prod.image}" style="width:100%; height:220px; object-fit:cover; border-radius:12px; margin-bottom:1rem;"></img>
+      <span style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">
+        ${prod.category}
+      </span>
+    </div>
+
+    <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--navy-950);">${prod.name}</h3>
+    <p style="font-size: 0.75rem; color: var(--brand-red); font-weight: 700; text-transform: uppercase; margin: 0.25rem 0 0.75rem 0;">${prod.tag}</p>
+    <p style="font-size: 0.85rem; color: #4b5563; line-height: 1.6; margin-bottom: 1.25rem;">${prod.description}</p>
+
+    <div style="background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem; margin-bottom: 1.25rem; font-size: 0.75rem;">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+        <span style="color: #6b7280; font-weight: 500;">Especificação:</span>
+        <span style="font-weight: 700; color: #1f2937; text-align:right;">${prod.specs}</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; border-top: 1px solid #e5e7eb; padding-top: 0.5rem;">
+        <span style="color: #6b7280; font-weight: 500;">Unidade de Venda:</span>
+        <span style="font-weight: 700; color: #1f2937;">${prod.unit}</span>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
+      <label style="font-size: 0.75rem; font-weight: 700; color: #374151;">Quantidade:</label>
+      <div style="display: flex; align-items: center; border: 1px solid #d1d5db; border-radius: 8px; overflow: hidden;">
+        <button onclick="adjustModalQty(-1)" style="background: #f3f4f6; border: none; padding: 0.4rem 0.8rem; font-weight: bold; cursor: pointer;">-</button>
+        <input type="number" id="modalQty" value="1" min="1" style="width: 45px; text-align: center; border: none; font-size: 0.8rem; font-weight: bold; outline: none;">
+        <button onclick="adjustModalQty(1)" style="background: #f3f4f6; border: none; padding: 0.4rem 0.8rem; font-weight: bold; cursor: pointer;">+</button>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+      <button onclick="addModalItemToCart(${prod.id})" class="btn-add" style="padding: 0.8rem; justify-content: center; font-size: 0.8rem;">
+        <i class="fas fa-cart-plus"></i> Adicionar
+      </button>
+      <button onclick="directWhatsAppQuote(${prod.id})" class="btn-whatsapp" style="padding: 0.8rem; justify-content: center; font-size: 0.8rem;">
+        <i class="fab fa-whatsapp" style="font-size: 1rem;"></i> Pedir Agora
+      </button>
+    </div>
+  `;
+
+  document.getElementById('productModal').classList.add('active');
+}
+
+function closeProductModal() {
+  document.getElementById('productModal').classList.remove('active');
+}
+
+function adjustModalQty(delta) {
+  const qtyInput = document.getElementById('modalQty');
+  let val = parseInt(qtyInput.value) || 1;
+  val = Math.max(1, val + delta);
+  qtyInput.value = val;
+}
+
+function addModalItemToCart(id) {
+  const qty = parseInt(document.getElementById('modalQty').value) || 1;
+  addToCart(id, qty);
+  closeProductModal();
+}
+
+// ===== Cart =====
+function addToCart(id, qty = 1) {
+  const existing = cart.find(item => item.id === id);
+  if (existing) {
+    existing.qty += qty;
+  } else {
+    const prod = PRODUCTS.find(p => p.id === id);
+    if (prod) {
+      cart.push({ ...prod, qty: qty });
+    }
+  }
+  updateCartUI();
+  showToast('Item adicionado ao seu carrinho!');
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(item => item.id !== id);
+  updateCartUI();
+}
+
+function updateCartQty(id, qty) {
+  const item = cart.find(i => i.id === id);
+  if (item) {
+    item.qty = Math.max(1, qty);
+  }
+  updateCartUI();
+}
+
+function updateCartUI() {
+  const badge = document.getElementById('cartBadge');
+  const totalCount = cart.reduce((acc, curr) => acc + curr.qty, 0);
+
+  if (totalCount > 0) {
+    badge.innerText = totalCount;
+    badge.classList.remove('hidden');
+  } else {
+    badge.classList.add('hidden');
+  }
+
+  const cartList = document.getElementById('cartItemsList');
+
+  if (cart.length === 0) {
+    cartList.innerHTML = `
+      <div style="text-align: center; padding: 3rem 1rem;">
+        <i class="fas fa-shopping-basket" style="font-size: 3rem; color: #d1d5db; margin-bottom: 0.75rem;"></i>
+        <p style="color: #6b7280; font-size: 0.8rem; font-weight: 500;">Seu carrinho de cotação está vazio.</p>
+        <p style="color: #9ca3af; font-size: 0.7rem; margin-top: 0.25rem;">Navegue no catálogo e adicione os materiais para a sua obra.</p>
+      </div>`;
+    return;
+  }
+
+  cartList.innerHTML = cart.map(item => `
+    <div style="background: #fff; border: 1px solid #e5e7eb; padding: 0.75rem; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <div style="background-color: ${item.colorBackground}; width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff;">
+          <i class="fas ${item.icon}"></i>
+        </div>
+        <div>
+          <h4 style="font-size: 0.75rem; font-weight: 700; color: #1f2937;">${item.name}</h4>
+          <p style="font-size: 0.65rem; color: #6b7280;">${item.unit}</p>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <div style="display: flex; align-items: center; border: 1px solid #e5e7eb; border-radius: 6px;">
+          <button onclick="updateCartQty(${item.id}, ${item.qty - 1})" style="background:none; border:none; padding: 2px 6px; font-size: 0.75rem; font-weight: bold; cursor: pointer;">-</button>
+          <span style="padding: 0 4px; font-size: 0.75rem; font-weight: bold;">${item.qty}</span>
+          <button onclick="updateCartQty(${item.id}, ${item.qty + 1})" style="background:none; border:none; padding: 2px 6px; font-size: 0.75rem; font-weight: bold; cursor: pointer;">+</button>
+        </div>
+        <button onclick="removeFromCart(${item.id})" style="background:none; border:none; color: #ef4444; cursor: pointer; font-size: 0.8rem;">
+          <i class="fas fa-trash-can"></i>
+        </button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleCartModal(show) {
+  const modal = document.getElementById('cartModal');
+  if (show) {
+    modal.classList.add('active');
+  } else {
+    modal.classList.remove('active');
+  }
+}
+
+// ===== WhatsApp =====
+function sendWhatsAppQuote() {
+  if (cart.length === 0) {
+    alert('O seu carrinho está vazio. Adicione produtos para solicitar cotação.');
+    return;
+  }
+
+  const name = document.getElementById('custName').value.trim();
+  const location = document.getElementById('custLocation').value.trim();
+  const notes = document.getElementById('custNotes').value.trim();
+
+  if (!name || !location) {
+    alert('Por favor, preencha o seu Nome e o Local da Obra/Entrega.');
+    return;
+  }
+
+  let text = '*SOLICITAÇÃO DE COTAÇÃO - MABELANE FERRAGENS*\n\n';
+  text += '*Cliente:* ' + name + '\n';
+  text += '*Local da Obra:* ' + location + '\n';
+  if (notes) text += '*Notas:* ' + notes + '\n';
+  text += '\n*PRODUTOS SOLICITADOS:*\n';
+
+  cart.forEach((item, index) => {
+    text += (index + 1) + '. *' + item.name + '* - Qtd: ' + item.qty + ' (' + item.unit + ')\n';
+  });
+
+  text += '\n_Aguardando cotação de preços e disponibilidade de entrega._';
+
+  const encoded = encodeURIComponent(text);
+  const whatsappURL = 'https://wa.me/+258840683794?text=' + encoded;
+  window.open(whatsappURL, '_blank');
+}
+
+function directWhatsAppQuote(prodId) {
+  const prod = PRODUCTS.find(p => p.id === prodId);
+  if (!prod) return;
+
+  const qtyInput = document.getElementById('modalQty');
+  const qty = qtyInput ? (parseInt(qtyInput.value) || 1) : 1;
+
+  let text = '*SOLICITAÇÃO RÁPIDA DE COTAÇÃO*\n\n';
+  text += 'Gostaria de saber o preço e disponibilidade para:\n';
+  text += '- *Produto:* ' + prod.name + '\n';
+  text += '- *Quantidade:* ' + qty + ' (' + prod.unit + ')\n';
+  text += '- *Especificação:* ' + prod.specs + '\n\n';
+  text += 'Obrigado!';
+
+  const encoded = encodeURIComponent(text);
+  window.open('https://wa.me/+258840683794?text=' + encoded, '_blank');
+}
+
+// ===== Mobile Menu =====
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+}
+
+// ===== Toast =====
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toastMsg').innerText = msg;
+  toast.classList.add('show');
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3000);
+}
+</script>
+</body>
+</html>
